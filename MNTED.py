@@ -21,7 +21,6 @@ class MNTED:
     """
     def __init__(self, MultiNet, MultiAttri, d, *varargs):
         '''
-
         :param MultiNet: a list  of network matrices with shape of (n,n)
         :param MultiAttri: a list of attribute matrices with shape of (n,m)
         :param d: the dimension of the embedding representation
@@ -36,8 +35,7 @@ class MNTED:
         self.d = d
         splitnum = 1  # number of pieces we split the SA for limited cache
         [self.n, m] = MultiAttri[0].shape  # n = Total num of nodes, m = attribute category num
-        print('len(MultiNet):',len(MultiNet))
-        print('MultiNet[0].shape:',MultiNet[0].shape)
+        print('MultiNet.shape:',MultiNet[0].shape)
         Nets=[]
         Attris=[]
         for Net in MultiNet:
@@ -60,8 +58,6 @@ class MNTED:
         else:
             # 将拓扑矩阵打乱成n*n或（n*10d）的新矩阵（按照纵向求和的从大到小排列），再进行svd分解后的酉矩阵，规格为n*d，作为H的初始值
             for Net in Nets:
-                print(type(Net))
-                print(Net.shape)
                 sumcol = Net.sum(0)#将Net沿纵方向向下加，成为一个长度为n的向量
                 H_initial=svds(Net[:, sorted(range(0,self.n), key=lambda r: sumcol[0, r], reverse=True)[0:min(10 * d, self.n)]], d)[0]
                 self.H.append(H_initial)
@@ -125,7 +121,7 @@ class MNTED:
                                     neighbor[nzidx, :] * normi_j.reshape((-1, 1))).sum(0)
                                     - (2-self.rho)*self.H[k][i,:]+4*self.V[i,:]-self.rho*self.U[k][i,:])
                     else:
-                        self.Z[i, :] = np.linalg.solve(xtx, sums[i - indexblock, :]
+                        self.Z[k][i, :] = np.linalg.solve(xtx, sums[i - indexblock, :]
                                     - (2-self.rho)*self.H[k][i,:]+4*self.V[i,:]-self.rho*self.U[k][i,:])
     def updateV(self,k):
         self.V=1/2*(self.H[k]+self.Z[k])
@@ -137,5 +133,5 @@ class MNTED:
                 self.updateZ(i)
                 self.updateV(i)
                 self.U[i]=self.U[i] + self.H[i] - self.Z[i]
-        return self.Vav
+        return self.V
 
