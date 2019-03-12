@@ -1,0 +1,2 @@
+average precision score of 100 times iteration: 0.859264805284 for dataset "Disney/disney_disturb_"
+

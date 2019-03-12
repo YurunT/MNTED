@@ -64,7 +64,7 @@ print("MNTED for a pure network:")
 start_time = time.time()
 V_Net = MNTED(G, G, d, lambd, rho).function()
 print("time elapsed: {:.2f}s".format(time.time() - start_time))
-sio.savemat('Embedding.mat', {"V_MNTED": V_MNTED, "V_Net": V_Net})
+sio.savemat(file_name+'_Embedding.mat', {"V_MNTED": V_MNTED, "V_Net": V_Net})
 print("Embedding.mat printed")
 
 

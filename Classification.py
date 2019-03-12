@@ -1,20 +1,21 @@
 from sklearn.svm import SVC
-from sklearn.metrics import classification_report
+# from sklearn.metrics import classification_report
 from sklearn.metrics import precision_score
 import numpy as np
 import scipy.io as sio
 '''##############load data################'''
-# Label = sio.loadmat('aminer/aminer_duicheng8.mat')['gnd']
-# Label = sio.loadmat('blog_perturb/blog_perturb8.mat')['gnd']
-# Label = sio.loadmat('congress/congress_8.mat')['gnd']
-# Label = sio.loadmat('Disney/disney_disturb_8.mat')['best_gnd']
-# Label = sio.loadmat('flickr/flickr_disturb_8.mat')['gnd']
-Label = sio.loadmat('wiki/wiki_disturb_8.mat')['gnd']
-embedding_contents = sio.loadmat('Embedding.mat')
+# file_name='aminer/aminer_duicheng'
+# file_name='blog_perturb/blog_perturb'
+# file_name='congress/congress_'
+file_name='Disney/disney_disturb_'
+# file_name='flickr/flickr_disturb_'
+# file_name='wiki/wiki_disturb_'
+Label = sio.loadmat(file_name+'8.mat')['best_gnd']
+embedding_contents = sio.loadmat(file_name+'_Embedding.mat')
 V_MNTED=embedding_contents['V_MNTED']
 V_Net=embedding_contents['V_Net']
 n=V_MNTED.shape[0]
-iterateTime=10#cross-validation iterate time
+iterateTime=100#cross-validation iterate time
 
 '''##############5-fold cross-validation################'''
 def multiLabel_classification(Labels,Label,Group1,Group2,train_x,test_x):
@@ -79,8 +80,14 @@ def generate_5fold_data(V_MNTED):
 precision_sum=0
 for __ in range(iterateTime):
 
-    train_x,test_x,Group1,Group2=generate_5fold_data(V_MNTED)
-    # train_x, test_x, Group1, Group2 = generate_5fold_data(V_Net)
+    # embedding_type='V_Net'
+    embedding_type="V_MNTED"
+
+    if embedding_type=='V_Net':
+        train_x, test_x, Group1, Group2 = generate_5fold_data(V_Net)
+    else:
+        train_x, test_x, Group1, Group2 = generate_5fold_data(V_MNTED)
+
     #num of categories
     Labels=[]
     for label in Label:
@@ -93,5 +100,9 @@ for __ in range(iterateTime):
     else:
         precision_sum=precision_sum+twoLabel_classification(Label,Group1,Group2,train_x,test_x)
 
-print('average precision score of 10 times iteration:',precision_sum/iterateTime)
 
+
+data=open("result.txt",'a')
+print('average precision score of %d times iteration: %.12f for dataset "%s"\n' %(iterateTime , precision_sum/iterateTime,file_name),file=data)
+data.close()
+print('average precision score of %d times iteration on %s : %.12f for dataset "%s"\n' %(iterateTime ,embedding_type, precision_sum/iterateTime,file_name))
