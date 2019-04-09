@@ -1,2 +1,58 @@
 average precision score of 100 times iteration: 0.859264805284 for dataset "Disney/disney_disturb_"
 
+average precision score of 100 times iteration: 0.743223495158 for dataset "Disney/disney_disturb_"
+
+average precision score of 100 times iteration: 0.850631616223 for dataset "Disney/disney_disturb_"
+
+average precision score of 10 times iteration: 0.085482804233 for dataset "Disney/disney_disturb_"
+
+average precision score of 10 times iteration: 0.854828042328 for dataset "Disney/disney_disturb_"
+
+average precision score of 10 times iteration: 0.854824735450 for dataset "Disney/disney_disturb_"
+
+average precision score of 5 times iteration: 0.854841269841 for dataset "Disney/disney_disturb_"
+
+average precision score of 5 times iteration: 0.919750812591 for dataset "wiki/wiki_disturb_"
+
+average precision score of 5 times iteration: 0.960549273759 for dataset "aminer/aminer_duicheng"
+
+average precision score of 5 times iteration: 0.950202980895 for dataset "aminer/aminer_duicheng"
+
+average precision score of 5 times iteration: 0.945423278182 for dataset "aminer/aminer_duicheng"
+
+average precision score of 5 times iteration: 0.950202954762 for dataset "aminer/aminer_duicheng"
+
+average precision score of 5 times iteration: 0.950202969839 for dataset "aminer/aminer_duicheng"
+
+average precision score of 5 times iteration: 0.890416836723 for dataset "blog_perturb/blog_perturb"
+
+average precision score of 5 times iteration: 0.899571428571 for dataset "flickr/flickr_disturb_"
+
+average precision score of 5 times iteration: 0.923588043499 for dataset "wiki/wiki_disturb_"
+
+average precision score of 5 times iteration: 0.854821428571 for dataset "Disney/disney_disturb_"
+
+average precision score of 5 times iteration: 0.950202984916 for dataset "aminer/aminer_duicheng"
+
+average precision score of 5 times iteration: 0.890416873230 for dataset "blog_perturb/blog_perturb"
+
+average precision score of 5 times iteration: 0.854801587302 for dataset "Disney/disney_disturb_"
+
+average precision score of 5 times iteration: 0.899571428571 for dataset "flickr/flickr_disturb_"
+
+average precision score of 5 times iteration: 0.923588121596 for dataset "wiki/wiki_disturb_"
+
+average precision score of 5 times iteration: 0.950202956772 for dataset "aminer/aminer_duicheng"
+
+average precision score of 5 times iteration: 0.960809889219 for dataset "aminer/aminer_duicheng"
+
+average precision score of 5 times iteration: 0.950202990947 for dataset "aminer/aminer_duicheng"
+
+average precision score of 5 times iteration: 0.948934629005 for dataset "congress/congress_"
+
+average precision score of 5 times iteration: 0.945933900050 for dataset "congress/congress_"
+
+average precision score of 5 times iteration: 0.947351948182 for dataset "congress/congress_"
+
+average precision score of 5 times iteration: 0.949158789732 for dataset "congress/congress_"
+

@@ -17,6 +17,7 @@ class MNTED:
     :param  maxiter: the maximum number of iteration
     :param  'Att': refers to conduct Initialization from the SVD of Attri
     :param  splitnum: the number of pieces we split the SA for limited cache
+    :param  window_len: the length of the moving window
     :return the comprehensive embedding representation H
     """
     def __init__(self, MultiNet, MultiAttri, d, *varargs):
@@ -27,6 +28,7 @@ class MNTED:
         :param varargs: 0：lambd，1：rho，2：maxiter，3：Att, 4:splitnum
         :returns initialization of multiple core variable
         '''
+        self.window_len=8
         self.maxiter = 2  # Max num of iteration
         self.lambd = 0.05  # Initial regularization parameter
         self.rho = 5  # Initial penalty parameter
@@ -127,11 +129,34 @@ class MNTED:
         self.V=1/2*(self.H[k]+self.Z[k])
     def function(self):
         '''################# Iterations #################'''
+        def update_with_range_layers(start,end):
+            #end is not included
+            if start==end:
+                for itr in range(self.maxiter - 1):
+                    self.updateH(start)
+                    self.updateZ(start)
+                    self.updateV(start)
+                    self.U[start] = self.U[start] + self.H[start] - self.Z[start]
+            else:
+
+                for i in np.arange(start,end+1):
+                    for itr in range(self.maxiter - 1):
+                        self.updateH(i)
+                        self.updateZ(i)
+                        self.updateV(i)
+                        self.U[i] = self.U[i] + self.H[i] - self.Z[i]
+
         for i in range(self.k):
-            for itr in range(self.maxiter - 1):
-                self.updateH(i)
-                self.updateZ(i)
-                self.updateV(i)
-                self.U[i]=self.U[i] + self.H[i] - self.Z[i]
+            if i < self.window_len-1:
+                update_with_range_layers(0,i)
+            else:
+                update_with_range_layers(i-self.window_len+1,i)
+
+        # for i in range(self.window_len):
+        #     for itr in range(self.maxiter - 1):
+        #         self.updateH(i)
+        #         self.updateZ(i)
+        #         self.updateV(i)
+        #         self.U[i]=self.U[i] + self.H[i] - self.Z[i]
         return self.V
 

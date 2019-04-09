@@ -3,13 +3,20 @@ from MNTED import MNTED
 import time
 
 '''################# Load data  #################'''
-# file_name='aminer/aminer_duicheng'
-# file_name='blog_perturb/blog_perturb'
-# file_name='congress/congress_'
-# file_name='Disney/disney_disturb_'
-# file_name='flickr/flickr_disturb_'
-file_name='wiki/wiki_disturb_'
-print("Dataset:",file_name)
+file_name_dic = {'aminer': 'aminer/aminer_duicheng',
+                 "blog_perturb": 'blog_perturb/blog_perturb',
+                 "congress": 'congress/congress_',
+                 "Disney": 'Disney/disney_disturb_',
+                 "flickr": 'flickr/flickr_disturb_',
+                 "wiki": 'wiki/wiki_disturb_'}
+# dataset_name = "aminer"
+# dataset_name = "blog_perturb"
+dataset_name = "congress"
+# dataset_name = "Disney"
+# dataset_name = "flickr"
+# dataset_name = "wiki"
+file_name=file_name_dic[dataset_name]
+print("Dataset:",dataset_name)
 AttributeMatrixFileName='X'
 NetworkMatrixFileName='A'
 lambd = 10**-0.6  # the regularization parameter
