@@ -21,13 +21,15 @@ class MNTED:
     :return the comprehensive embedding representation H
     """
     def __init__(self, MultiNet, MultiAttri, d, *varargs):
-        '''
+        """
+
         :param MultiNet: a list  of network matrices with shape of (n,n)
         :param MultiAttri: a list of attribute matrices with shape of (n,m)
         :param d: the dimension of the embedding representation
-        :param varargs: 0：lambd，1：rho，2：maxiter，3：Att, 4:splitnum
+        :param varargs: 0：lambd，1：rho，2：maxiter，3：Att(use attri or net for H's init), 4:splitnum
         :returns initialization of multiple core variable
-        '''
+
+        """
         self.window_len=8
         self.maxiter = 2  # Max num of iteration
         self.lambd = 0.05  # Initial regularization parameter
@@ -35,6 +37,7 @@ class MNTED:
         self.k=len(MultiNet)#the num of layers of Multilayer Network
         print('k:',self.k)
         self.d = d
+        self.worknum = 3
         splitnum = 1  # number of pieces we split the SA for limited cache
         [self.n, m] = MultiAttri[0].shape  # n = Total num of nodes, m = attribute category num
         print('MultiNet.shape:',MultiNet[0].shape)
@@ -128,6 +131,7 @@ class MNTED:
     def updateV(self,k):
         self.V=1/2*(self.H[k]+self.Z[k])
     def function(self):
+        V_list=list()
         '''################# Iterations #################'''
         def update_with_range_layers(start,end):
             #end is not included
@@ -148,9 +152,11 @@ class MNTED:
 
         for i in range(self.k):
             if i < self.window_len-1:
-                update_with_range_layers(0,i)
+                update_with_range_layers(0, i)
+                V_list.append(self.V)
             else:
-                update_with_range_layers(i-self.window_len+1,i)
+                update_with_range_layers(i-self.window_len+1, i)
+                V_list.append(self.V)
 
         # for i in range(self.window_len):
         #     for itr in range(self.maxiter - 1):
@@ -158,5 +164,5 @@ class MNTED:
         #         self.updateZ(i)
         #         self.updateV(i)
         #         self.U[i]=self.U[i] + self.H[i] - self.Z[i]
-        return self.V
+        return V_list
 
