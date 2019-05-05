@@ -2,28 +2,36 @@ import scipy.io as sio
 from MNTED import MNTED
 import time
 
-'''################# Load data  #################'''
+
+# dataset_name = "aminer"
+# dataset_name = "blog_perturb"
+# dataset_name = "congress"
+# dataset_name = "Disney"
+dataset_name = "flickr"
+# dataset_name = "wiki"
+
 file_name_dic = {'aminer': 'aminer/aminer_duicheng',
                  "blog_perturb": 'blog_perturb/blog_perturb',
                  "congress": 'congress/congress_',
                  "Disney": 'Disney/disney_disturb_',
                  "flickr": 'flickr/flickr_disturb_',
                  "wiki": 'wiki/wiki_disturb_'}
-# dataset_name = "aminer"
-# dataset_name = "blog_perturb"
-dataset_name = "congress"
-# dataset_name = "Disney"
-# dataset_name = "flickr"
-# dataset_name = "wiki"
+
+'''################# Load dataset #################'''
 file_name=file_name_dic[dataset_name]
 print("Dataset:",dataset_name)
-AttributeMatrixFileName='X'
-NetworkMatrixFileName='A'
+if dataset_name=='Disney':
+    AttributeMatrixFileName = 'best_X'
+    NetworkMatrixFileName = 'best_A'
+else:
+    AttributeMatrixFileName='X'
+    NetworkMatrixFileName='A'
 lambd = 10**-0.6  # the regularization parameter
 rho = 5  # the penalty parameter
 # mat_contents = sio.loadmat('Flickr.mat')
 # lambd = 0.0425  # the regularization parameter
 # rho = 4  # the penalty parameter
+
 File_name=file_name+'1'+'.mat'
 mat_contents = sio.loadmat(File_name)
 i=1
@@ -61,15 +69,27 @@ while mat_contents is not None:
 
 
 '''################# Multilayer Network Tax Evasion Detection #################'''
-print("Multilayer Network Tax Evasion Detection (MNTED), 5-fold with 100% of training is used:")
+print("Multilayer Network Tax Evasion Detection (MNTED)")
 start_time = time.time()
 V_MNTED = MNTED(G, A, d, lambd, rho).function()
-print("time elapsed: {:.2f}s".format(time.time() - start_time))
+V_MNTED_time=time.time() - start_time
+print("time elapsed: {:.2f}s".format(V_MNTED_time))
 
 '''################# MNTED for a Pure Network #################'''
 print("MNTED for a pure network:")
 start_time = time.time()
 V_Net = MNTED(G, G, d, lambd, rho).function()
-print("time elapsed: {:.2f}s".format(time.time() - start_time))
-sio.savemat(file_name+'_Embedding.mat', {"V_MNTED": V_MNTED, "V_Net": V_Net})
+V_Net_time=time.time() - start_time
+print("time elapsed: {:.2f}s".format(V_Net_time))
+
+'''################# Save the embedding result into files #################'''
+for g in range(len(V_MNTED)):
+    sio.savemat("result/"+file_name+str(g)+'_Embedding.mat', {"V_MNTED": V_MNTED[g], "V_Net": V_Net[g]})
 print("Embedding.mat printed")
+
+data=open("result/"+file_name+"_"+"embedding_time_result"+".txt",'a+')
+print("Dataset:",dataset_name,file=data)
+print("time length:",len(V_MNTED),file=data)
+print("Time spent on MNTED: %.12f s"  %(V_MNTED_time),file=data)
+print("Time spent on NET: %.12f s"  %(V_Net_time),file=data)
+data.close()

@@ -1,0 +1,242 @@
+Dataset: flickr
+Total time length: 8
+5 x 10 fold cross-validation used for each day
+
+DAY 1:
+MNTED: average precision score : 0.952459803734 
+NET: average precision score : 0.952459803734 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.952459803734 
+NET: average f-1 score : 0.952459803734 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 2:
+MNTED: average precision score : 0.905606201977 
+NET: average precision score : 0.905606201977 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.905606201977 
+NET: average f-1 score : 0.905606201977 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 3:
+MNTED: average precision score : 0.897806021991 
+NET: average precision score : 0.897806021991 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.897806021991 
+NET: average f-1 score : 0.897806021991 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 4:
+MNTED: average precision score : 0.890255897641 
+NET: average precision score : 0.890255897641 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.890255897641 
+NET: average f-1 score : 0.890255897641 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 5:
+MNTED: average precision score : 0.881450097527 
+NET: average precision score : 0.881450097527 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.881450097527 
+NET: average f-1 score : 0.881450097527 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 6:
+MNTED: average precision score : 0.873342477909 
+NET: average precision score : 0.873342477909 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.873342477909 
+NET: average f-1 score : 0.873342477909 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 7:
+MNTED: average precision score : 0.867160959298 
+NET: average precision score : 0.867160959298 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.867160959298 
+NET: average f-1 score : 0.867160959298 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 8:
+MNTED: average precision score : 0.860954874973 
+NET: average precision score : 0.860954874973 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.860954874973 
+NET: average f-1 score : 0.860954874973 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+TOTAL:
+MNTED: average precision score for the whole time: 0.891129541881 
+NET: average precision score for the whole time: 0.891129541881 
+MNTED: average recall score for the whole time: 1.000000000000 
+NET: average recall score for the whole time: 1.000000000000 
+MNTED: average f-1 score for the whole time: 0.891129541881 
+NET: average f-1 score for the whole time: 0.891129541881 
+MNTED: average f-1 score for the whole time: 0.891129541881 
+NET: average f-1 score for the whole time: 0.891129541881 
+MNTED: average auc score for the whole time: 0.500000000000 
+NET: average auc score for the whole time: 0.500000000000 
+Dataset: flickr
+Total time length: 8
+5 x 10 fold cross-validation used for each day
+
+DAY 1:
+MNTED: average precision score : 0.952464838256 
+NET: average precision score : 0.952464838256 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.952464838256 
+NET: average f-1 score : 0.952464838256 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 2:
+MNTED: average precision score : 0.905607019787 
+NET: average precision score : 0.905607019787 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.905607019787 
+NET: average f-1 score : 0.905607019787 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 3:
+MNTED: average precision score : 0.897798721267 
+NET: average precision score : 0.897798721267 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.897798721267 
+NET: average f-1 score : 0.897798721267 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 4:
+MNTED: average precision score : 0.890251232840 
+NET: average precision score : 0.890251232840 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.890251232840 
+NET: average f-1 score : 0.890251232840 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 5:
+MNTED: average precision score : 0.881455234437 
+NET: average precision score : 0.881455234437 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.881455234437 
+NET: average f-1 score : 0.881455234437 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 6:
+MNTED: average precision score : 0.873345472696 
+NET: average precision score : 0.873345472696 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.873345472696 
+NET: average f-1 score : 0.873345472696 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 7:
+MNTED: average precision score : 0.867162516358 
+NET: average precision score : 0.867162516358 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.867162516358 
+NET: average f-1 score : 0.867162516358 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 8:
+MNTED: average precision score : 0.860948919103 
+NET: average precision score : 0.860948919103 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.860948919103 
+NET: average f-1 score : 0.860948919103 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+TOTAL:
+MNTED: average precision score for the whole time: 0.891129244343 
+NET: average precision score for the whole time: 0.891129244343 
+MNTED: average recall score for the whole time: 1.000000000000 
+NET: average recall score for the whole time: 1.000000000000 
+MNTED: average f-1 score for the whole time: 0.891129244343 
+NET: average f-1 score for the whole time: 0.891129244343 
+MNTED: average f-1 score for the whole time: 0.891129244343 
+NET: average f-1 score for the whole time: 0.891129244343 
+MNTED: average auc score for the whole time: 0.500000000000 
+NET: average auc score for the whole time: 0.500000000000 
+Dataset: flickr
+Total time length: 8
+5 x 10 fold cross-validation used for each day
+
+Dataset: flickr
+Total time length: 8
+5 x 10 fold cross-validation used for each day
+
+Dataset: flickr
+Total time length: 8
+5 x 10 fold cross-validation used for each day
+
+Dataset: flickr
+Total time length: 8
+5 x 10 fold cross-validation used for each day
+
+Dataset: flickr
+Total time length: 8
+5 x 10 fold cross-validation used for each day
+
+Dataset: flickr
+Total time length: 8
+5 x 10 fold cross-validation used for each day
+
+Dataset: flickr
+Total time length: 8
+5 x 10 fold cross-validation used for each day
+
+Dataset: flickr
+Total time length: 8
+5 x 10 fold cross-validation used for each day
+
+Dataset: flickr
+Total time length: 8
+5 x 10 fold cross-validation used for each day
+
+Dataset: flickr
+Total time length: 8
+5 x 10 fold cross-validation used for each day
+
+Dataset: flickr
+Total time length: 8
+5 x 10 fold cross-validation used for each day
+
+Dataset: flickr
+Total time length: 8
+5 x 10 fold cross-validation used for each day
+
+Dataset: flickr
+Total time length: 8
+5 x 10 fold cross-validation used for each day
+

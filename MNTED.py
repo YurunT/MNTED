@@ -18,7 +18,7 @@ class MNTED:
     :param  'Att': refers to conduct Initialization from the SVD of Attri
     :param  splitnum: the number of pieces we split the SA for limited cache
     :param  window_len: the length of the moving window
-    :return the comprehensive embedding representation H
+    :return the comprehensive embedding representation H(a list containing all the time stamps' representation)
     """
     def __init__(self, MultiNet, MultiAttri, d, *varargs):
         """
@@ -26,7 +26,11 @@ class MNTED:
         :param MultiNet: a list  of network matrices with shape of (n,n)
         :param MultiAttri: a list of attribute matrices with shape of (n,m)
         :param d: the dimension of the embedding representation
-        :param varargs: 0：lambd，1：rho，2：maxiter，3：Att(use attri or net for H's init), 4:splitnum
+        :param varargs: 0：lambd，1：rho，2：maxiter，3：Att(use "Att" or "Net" for H's init), 4:splitnum
+        :param self.H: a list of representation of layers (len: self.k)
+        :param self.Z: a copy of self.H (len: self.k)
+        :param self.U: a list of dual variable(len: self.k)
+        :param self.V: window's representation (len: 1)
         :returns initialization of multiple core variable
 
         """

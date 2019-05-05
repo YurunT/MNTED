@@ -84,9 +84,10 @@ if __name__ == "__main__":
     print("Embedding.mat printed")
 
 
-    data=open("embedding_result_"+dataset_name+"_"+str(worker_num)+"workers"+".txt",'a+')
+    data=open(file_name+"_"+"time_result"+"_"+str(worker_num)+"workers"+".txt",'a+')
     print("Dataset:",dataset_name,file=data)
-    print("Time spent on MNTED: %.12f with %d workers"  %(V_NET_time_worker,worker_num),file=data)
-    print("Time spent on NET: %.12f with %d workers"  %(V_NET_time_worker,worker_num),file=data)
+    print("time length:", len(V_MNTED), file=data)
+    print("Time spent on MNTED: %.12f s with %d workers"  %(V_NET_time_worker,worker_num),file=data)
+    print("Time spent on NET: %.12f s with %d workers"  %(V_NET_time_worker,worker_num),file=data)
     data.close()
     print("All process finished!")

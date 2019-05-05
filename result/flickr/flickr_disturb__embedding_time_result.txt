@@ -1,0 +1,4 @@
+Dataset: flickr
+time length: 8
+Time spent on MNTED: 925.817884683609 s
+Time spent on NET: 1265.623553752899 s

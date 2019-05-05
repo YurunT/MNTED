@@ -1,0 +1,1097 @@
+Dataset: congress
+Total time length: 8
+5 x 10 fold cross-validation used for each day
+
+Dataset: congress
+Total time length: 8
+5 x 10 fold cross-validation used for each day
+
+DAY 1:
+MNTED: average precision score : 0.905454545455 
+NET: average precision score : 0.905454545455 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.905454545455 
+NET: average f-1 score : 0.905454545455 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 2:
+MNTED: average precision score : 0.907272727273 
+NET: average precision score : 0.907272727273 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.907272727273 
+NET: average f-1 score : 0.907272727273 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 3:
+MNTED: average precision score : 0.907272727273 
+NET: average precision score : 0.907272727273 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.907272727273 
+NET: average f-1 score : 0.907272727273 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 4:
+MNTED: average precision score : 0.905454545455 
+NET: average precision score : 0.905454545455 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.905454545455 
+NET: average f-1 score : 0.905454545455 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 5:
+MNTED: average precision score : 0.905454545455 
+NET: average precision score : 0.905454545455 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.905454545455 
+NET: average f-1 score : 0.905454545455 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 6:
+MNTED: average precision score : 0.903636363636 
+NET: average precision score : 0.903636363636 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.903636363636 
+NET: average f-1 score : 0.903636363636 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 7:
+MNTED: average precision score : 0.907272727273 
+NET: average precision score : 0.907272727273 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.907272727273 
+NET: average f-1 score : 0.907272727273 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 8:
+MNTED: average precision score : 0.907272727273 
+NET: average precision score : 0.907272727273 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.907272727273 
+NET: average f-1 score : 0.907272727273 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+TOTAL:
+MNTED: average precision score for the whole time: 0.906136363636 
+NET: average precision score for the whole time: 0.906136363636 
+MNTED: average recall score for the whole time: 1.000000000000 
+NET: average recall score for the whole time: 1.000000000000 
+MNTED: average f-1 score for the whole time: 0.906136363636 
+NET: average f-1 score for the whole time: 0.906136363636 
+MNTED: average f-1 score for the whole time: 0.906136363636 
+NET: average f-1 score for the whole time: 0.906136363636 
+MNTED: average auc score for the whole time: 0.500000000000 
+NET: average auc score for the whole time: 0.500000000000 
+Dataset: congress
+Total time length: 8
+5 x 10 fold cross-validation used for each day
+
+DAY 1:
+MNTED: average precision score : 0.907272727273 
+NET: average precision score : 0.907272727273 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.907272727273 
+NET: average f-1 score : 0.907272727273 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 2:
+MNTED: average precision score : 0.907272727273 
+NET: average precision score : 0.907272727273 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.907272727273 
+NET: average f-1 score : 0.907272727273 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 3:
+MNTED: average precision score : 0.907272727273 
+NET: average precision score : 0.907272727273 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.907272727273 
+NET: average f-1 score : 0.907272727273 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 4:
+MNTED: average precision score : 0.907272727273 
+NET: average precision score : 0.907272727273 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.907272727273 
+NET: average f-1 score : 0.907272727273 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 5:
+MNTED: average precision score : 0.905454545455 
+NET: average precision score : 0.905454545455 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.905454545455 
+NET: average f-1 score : 0.905454545455 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 6:
+MNTED: average precision score : 0.905454545455 
+NET: average precision score : 0.905454545455 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.905454545455 
+NET: average f-1 score : 0.905454545455 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 7:
+MNTED: average precision score : 0.907272727273 
+NET: average precision score : 0.907272727273 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.907272727273 
+NET: average f-1 score : 0.907272727273 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 8:
+MNTED: average precision score : 0.907272727273 
+NET: average precision score : 0.907272727273 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.907272727273 
+NET: average f-1 score : 0.907272727273 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+TOTAL:
+MNTED: average precision score for the whole time: 0.906818181818 
+NET: average precision score for the whole time: 0.906818181818 
+MNTED: average recall score for the whole time: 1.000000000000 
+NET: average recall score for the whole time: 1.000000000000 
+MNTED: average f-1 score for the whole time: 0.906818181818 
+NET: average f-1 score for the whole time: 0.906818181818 
+MNTED: average f-1 score for the whole time: 0.906818181818 
+NET: average f-1 score for the whole time: 0.906818181818 
+MNTED: average auc score for the whole time: 0.500000000000 
+NET: average auc score for the whole time: 0.500000000000 
+Dataset: congress
+Total time length: 8
+5 x 10 fold cross-validation used for each day
+
+DAY 1:
+MNTED: average precision score : 0.907272727273 
+NET: average precision score : 0.907272727273 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.907272727273 
+NET: average f-1 score : 0.907272727273 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 2:
+MNTED: average precision score : 0.905454545455 
+NET: average precision score : 0.905454545455 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.905454545455 
+NET: average f-1 score : 0.905454545455 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 3:
+MNTED: average precision score : 0.905454545455 
+NET: average precision score : 0.905454545455 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.905454545455 
+NET: average f-1 score : 0.905454545455 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 4:
+MNTED: average precision score : 0.907272727273 
+NET: average precision score : 0.907272727273 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.907272727273 
+NET: average f-1 score : 0.907272727273 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 5:
+MNTED: average precision score : 0.907272727273 
+NET: average precision score : 0.907272727273 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.907272727273 
+NET: average f-1 score : 0.907272727273 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 6:
+MNTED: average precision score : 0.905454545455 
+NET: average precision score : 0.905454545455 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.905454545455 
+NET: average f-1 score : 0.905454545455 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 7:
+MNTED: average precision score : 0.907272727273 
+NET: average precision score : 0.907272727273 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.907272727273 
+NET: average f-1 score : 0.907272727273 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 8:
+MNTED: average precision score : 0.905454545455 
+NET: average precision score : 0.905454545455 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.905454545455 
+NET: average f-1 score : 0.905454545455 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+TOTAL:
+MNTED: average precision score for the whole time: 0.906363636364 
+NET: average precision score for the whole time: 0.906363636364 
+MNTED: average recall score for the whole time: 1.000000000000 
+NET: average recall score for the whole time: 1.000000000000 
+MNTED: average f-1 score for the whole time: 0.906363636364 
+NET: average f-1 score for the whole time: 0.906363636364 
+MNTED: average f-1 score for the whole time: 0.906363636364 
+NET: average f-1 score for the whole time: 0.906363636364 
+MNTED: average auc score for the whole time: 0.500000000000 
+NET: average auc score for the whole time: 0.500000000000 
+Dataset: congress
+Total time length: 8
+5 x 10 fold cross-validation used for each day
+
+DAY 1:
+MNTED: average precision score : 0.000000000000 
+NET: average precision score : 0.000000000000 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.000000000000 
+NET: average f-1 score : 0.000000000000 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 2:
+MNTED: average precision score : 0.000000000000 
+NET: average precision score : 0.000000000000 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.000000000000 
+NET: average f-1 score : 0.000000000000 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 3:
+MNTED: average precision score : 0.000000000000 
+NET: average precision score : 0.000000000000 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.000000000000 
+NET: average f-1 score : 0.000000000000 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 4:
+MNTED: average precision score : 0.000000000000 
+NET: average precision score : 0.000000000000 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.000000000000 
+NET: average f-1 score : 0.000000000000 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 5:
+MNTED: average precision score : 0.000000000000 
+NET: average precision score : 0.000000000000 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.000000000000 
+NET: average f-1 score : 0.000000000000 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 6:
+MNTED: average precision score : 0.000000000000 
+NET: average precision score : 0.000000000000 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.000000000000 
+NET: average f-1 score : 0.000000000000 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 7:
+MNTED: average precision score : 0.000000000000 
+NET: average precision score : 0.000000000000 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.000000000000 
+NET: average f-1 score : 0.000000000000 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 8:
+MNTED: average precision score : 0.000000000000 
+NET: average precision score : 0.000000000000 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.000000000000 
+NET: average f-1 score : 0.000000000000 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+TOTAL:
+MNTED: average precision score for the whole time: 0.000000000000 
+NET: average precision score for the whole time: 0.000000000000 
+MNTED: average recall score for the whole time: 1.000000000000 
+NET: average recall score for the whole time: 1.000000000000 
+MNTED: average f-1 score for the whole time: 0.000000000000 
+NET: average f-1 score for the whole time: 0.000000000000 
+MNTED: average f-1 score for the whole time: 0.000000000000 
+NET: average f-1 score for the whole time: 0.000000000000 
+MNTED: average auc score for the whole time: 0.500000000000 
+NET: average auc score for the whole time: 0.500000000000 
+Dataset: congress
+Total time length: 8
+5 x 10 fold cross-validation used for each day
+
+Dataset: congress
+Total time length: 8
+5 x 10 fold cross-validation used for each day
+
+DAY 1:
+MNTED: average precision score : 0.907272727273 
+NET: average precision score : 0.907272727273 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.907272727273 
+NET: average f-1 score : 0.907272727273 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 2:
+MNTED: average precision score : 0.907272727273 
+NET: average precision score : 0.907272727273 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.907272727273 
+NET: average f-1 score : 0.907272727273 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 3:
+MNTED: average precision score : 0.905454545455 
+NET: average precision score : 0.905454545455 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.905454545455 
+NET: average f-1 score : 0.905454545455 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 4:
+MNTED: average precision score : 0.905454545455 
+NET: average precision score : 0.905454545455 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.905454545455 
+NET: average f-1 score : 0.905454545455 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 5:
+MNTED: average precision score : 0.903636363636 
+NET: average precision score : 0.903636363636 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.903636363636 
+NET: average f-1 score : 0.903636363636 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 6:
+MNTED: average precision score : 0.907272727273 
+NET: average precision score : 0.907272727273 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.907272727273 
+NET: average f-1 score : 0.907272727273 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 7:
+MNTED: average precision score : 0.907272727273 
+NET: average precision score : 0.907272727273 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.907272727273 
+NET: average f-1 score : 0.907272727273 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 8:
+MNTED: average precision score : 0.907272727273 
+NET: average precision score : 0.907272727273 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.907272727273 
+NET: average f-1 score : 0.907272727273 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+TOTAL:
+MNTED: average precision score for the whole time: 0.906363636364 
+NET: average precision score for the whole time: 0.906363636364 
+MNTED: average recall score for the whole time: 1.000000000000 
+NET: average recall score for the whole time: 1.000000000000 
+MNTED: average f-1 score for the whole time: 0.906363636364 
+NET: average f-1 score for the whole time: 0.906363636364 
+MNTED: average f-1 score for the whole time: 0.906363636364 
+NET: average f-1 score for the whole time: 0.906363636364 
+MNTED: average auc score for the whole time: 0.500000000000 
+NET: average auc score for the whole time: 0.500000000000 
+Dataset: congress
+Total time length: 8
+5 x 10 fold cross-validation used for each day
+
+Dataset: congress
+Total time length: 8
+5 x 10 fold cross-validation used for each day
+
+Dataset: congress
+Total time length: 8
+5 x 10 fold cross-validation used for each day
+
+Dataset: congress
+Total time length: 8
+5 x 10 fold cross-validation used for each day
+
+Dataset: congress
+Total time length: 8
+5 x 10 fold cross-validation used for each day
+
+Dataset: congress
+Total time length: 8
+5 x 10 fold cross-validation used for each day
+
+Dataset: congress
+Total time length: 8
+5 x 10 fold cross-validation used for each day
+
+Dataset: congress
+Total time length: 8
+5 x 10 fold cross-validation used for each day
+
+Dataset: congress
+Total time length: 8
+5 x 10 fold cross-validation used for each day
+
+Dataset: congress
+Total time length: 8
+5 x 10 fold cross-validation used for each day
+
+Dataset: congress
+Total time length: 8
+5 x 10 fold cross-validation used for each day
+
+DAY 1:
+MNTED: average precision score : 0.656397515528 
+NET: average precision score : 0.656397515528 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.656397515528 
+NET: average f-1 score : 0.656397515528 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 2:
+MNTED: average precision score : 0.656741200828 
+NET: average precision score : 0.656741200828 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.656741200828 
+NET: average f-1 score : 0.656741200828 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 3:
+MNTED: average precision score : 0.660095238095 
+NET: average precision score : 0.660095238095 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.660095238095 
+NET: average f-1 score : 0.660095238095 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 4:
+MNTED: average precision score : 0.658633540373 
+NET: average precision score : 0.658633540373 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.658633540373 
+NET: average f-1 score : 0.658633540373 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 5:
+MNTED: average precision score : 0.660869565217 
+NET: average precision score : 0.660869565217 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.660869565217 
+NET: average f-1 score : 0.660869565217 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 6:
+MNTED: average precision score : 0.656397515528 
+NET: average precision score : 0.656397515528 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.656397515528 
+NET: average f-1 score : 0.656397515528 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 7:
+MNTED: average precision score : 0.651366459627 
+NET: average precision score : 0.651366459627 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.651366459627 
+NET: average f-1 score : 0.651366459627 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 8:
+MNTED: average precision score : 0.661428571429 
+NET: average precision score : 0.661428571429 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.661428571429 
+NET: average f-1 score : 0.661428571429 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+TOTAL:
+MNTED: average precision score for the whole time: 0.657741200828 
+NET: average precision score for the whole time: 0.657741200828 
+MNTED: average recall score for the whole time: 1.000000000000 
+NET: average recall score for the whole time: 1.000000000000 
+MNTED: average f-1 score for the whole time: 0.657741200828 
+NET: average f-1 score for the whole time: 0.657741200828 
+MNTED: average f-1 score for the whole time: 0.657741200828 
+NET: average f-1 score for the whole time: 0.657741200828 
+MNTED: average auc score for the whole time: 0.500000000000 
+NET: average auc score for the whole time: 0.500000000000 
+Dataset: congress
+Total time length: 8
+5 x 10 fold cross-validation used for each day
+
+DAY 1:
+MNTED: average precision score : 0.446744639376 
+NET: average precision score : 0.446744639376 
+MNTED: average recall score : 0.260000000000 
+NET: average recall score : 0.260000000000 
+MNTED: average f-1 score : 0.446744639376 
+NET: average f-1 score : 0.446744639376 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 2:
+MNTED: average precision score : 0.433294346979 
+NET: average precision score : 0.433294346979 
+MNTED: average recall score : 0.320000000000 
+NET: average recall score : 0.320000000000 
+MNTED: average f-1 score : 0.433294346979 
+NET: average f-1 score : 0.433294346979 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 3:
+MNTED: average precision score : 0.418440545809 
+NET: average precision score : 0.418440545809 
+MNTED: average recall score : 0.340000000000 
+NET: average recall score : 0.340000000000 
+MNTED: average f-1 score : 0.418440545809 
+NET: average f-1 score : 0.418440545809 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 4:
+MNTED: average precision score : 0.430643274854 
+NET: average precision score : 0.430643274854 
+MNTED: average recall score : 0.280000000000 
+NET: average recall score : 0.280000000000 
+MNTED: average f-1 score : 0.430643274854 
+NET: average f-1 score : 0.430643274854 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 5:
+MNTED: average precision score : 0.421091617934 
+NET: average precision score : 0.421091617934 
+MNTED: average recall score : 0.340000000000 
+NET: average recall score : 0.340000000000 
+MNTED: average f-1 score : 0.421091617934 
+NET: average f-1 score : 0.421091617934 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 6:
+MNTED: average precision score : 0.429941520468 
+NET: average precision score : 0.429941520468 
+MNTED: average recall score : 0.280000000000 
+NET: average recall score : 0.280000000000 
+MNTED: average f-1 score : 0.429941520468 
+NET: average f-1 score : 0.429941520468 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 7:
+MNTED: average precision score : 0.430448343080 
+NET: average precision score : 0.430448343080 
+MNTED: average recall score : 0.300000000000 
+NET: average recall score : 0.300000000000 
+MNTED: average f-1 score : 0.430448343080 
+NET: average f-1 score : 0.430448343080 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 8:
+MNTED: average precision score : 0.435165692008 
+NET: average precision score : 0.435165692008 
+MNTED: average recall score : 0.280000000000 
+NET: average recall score : 0.280000000000 
+MNTED: average f-1 score : 0.435165692008 
+NET: average f-1 score : 0.435165692008 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+TOTAL:
+MNTED: average precision score for the whole time: 0.430721247563 
+NET: average precision score for the whole time: 0.430721247563 
+MNTED: average recall score for the whole time: 0.300000000000 
+NET: average recall score for the whole time: 0.300000000000 
+MNTED: average f-1 score for the whole time: 0.430721247563 
+NET: average f-1 score for the whole time: 0.430721247563 
+MNTED: average f-1 score for the whole time: 0.430721247563 
+NET: average f-1 score for the whole time: 0.430721247563 
+MNTED: average auc score for the whole time: 0.500000000000 
+NET: average auc score for the whole time: 0.500000000000 
+Dataset: congress
+Total time length: 8
+5 x 10 fold cross-validation used for each day
+
+DAY 1:
+MNTED: average precision score : 0.601447368421 
+NET: average precision score : 0.601447368421 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.601447368421 
+NET: average f-1 score : 0.601447368421 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 2:
+MNTED: average precision score : 0.603223684211 
+NET: average precision score : 0.603223684211 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.603223684211 
+NET: average f-1 score : 0.603223684211 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 3:
+MNTED: average precision score : 0.601644736842 
+NET: average precision score : 0.601644736842 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.601644736842 
+NET: average f-1 score : 0.601644736842 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 4:
+MNTED: average precision score : 0.600855263158 
+NET: average precision score : 0.600855263158 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.600855263158 
+NET: average f-1 score : 0.600855263158 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 5:
+MNTED: average precision score : 0.601644736842 
+NET: average precision score : 0.601644736842 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.601644736842 
+NET: average f-1 score : 0.601644736842 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 6:
+MNTED: average precision score : 0.601644736842 
+NET: average precision score : 0.601644736842 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.601644736842 
+NET: average f-1 score : 0.601644736842 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 7:
+MNTED: average precision score : 0.598486842105 
+NET: average precision score : 0.598486842105 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.598486842105 
+NET: average f-1 score : 0.598486842105 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 8:
+MNTED: average precision score : 0.602434210526 
+NET: average precision score : 0.602434210526 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.602434210526 
+NET: average f-1 score : 0.602434210526 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+TOTAL:
+MNTED: average precision score for the whole time: 0.601422697368 
+NET: average precision score for the whole time: 0.601422697368 
+MNTED: average recall score for the whole time: 1.000000000000 
+NET: average recall score for the whole time: 1.000000000000 
+MNTED: average f-1 score for the whole time: 0.601422697368 
+NET: average f-1 score for the whole time: 0.601422697368 
+MNTED: average f-1 score for the whole time: 0.601422697368 
+NET: average f-1 score for the whole time: 0.601422697368 
+MNTED: average auc score for the whole time: 0.500000000000 
+NET: average auc score for the whole time: 0.500000000000 
+Dataset: congress
+Total time length: 8
+5 x 10 fold cross-validation used for each day
+
+DAY 1:
+MNTED: average precision score : 0.881926322044 
+NET: average precision score : 0.881926322044 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.881926322044 
+NET: average f-1 score : 0.881926322044 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 2:
+MNTED: average precision score : 0.886673796791 
+NET: average precision score : 0.886673796791 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.886673796791 
+NET: average f-1 score : 0.886673796791 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 3:
+MNTED: average precision score : 0.878942364825 
+NET: average precision score : 0.878942364825 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.878942364825 
+NET: average f-1 score : 0.878942364825 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 4:
+MNTED: average precision score : 0.885562685680 
+NET: average precision score : 0.885562685680 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.885562685680 
+NET: average f-1 score : 0.885562685680 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 5:
+MNTED: average precision score : 0.885679144385 
+NET: average precision score : 0.885679144385 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.885679144385 
+NET: average f-1 score : 0.885679144385 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 6:
+MNTED: average precision score : 0.885733808675 
+NET: average precision score : 0.885733808675 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.885733808675 
+NET: average f-1 score : 0.885733808675 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 7:
+MNTED: average precision score : 0.873884729649 
+NET: average precision score : 0.873884729649 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.873884729649 
+NET: average f-1 score : 0.873884729649 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 8:
+MNTED: average precision score : 0.885508021390 
+NET: average precision score : 0.885508021390 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.885508021390 
+NET: average f-1 score : 0.885508021390 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+TOTAL:
+MNTED: average precision score for the whole time: 0.882988859180 
+NET: average precision score for the whole time: 0.882988859180 
+MNTED: average recall score for the whole time: 1.000000000000 
+NET: average recall score for the whole time: 1.000000000000 
+MNTED: average f-1 score for the whole time: 0.882988859180 
+NET: average f-1 score for the whole time: 0.882988859180 
+MNTED: average f-1 score for the whole time: 0.882988859180 
+NET: average f-1 score for the whole time: 0.882988859180 
+MNTED: average auc score for the whole time: 0.500000000000 
+NET: average auc score for the whole time: 0.500000000000 
+Dataset: congress
+Total time length: 8
+5 x 10 fold cross-validation used for each day
+
+Dataset: congress
+Total time length: 8
+5 x 10 fold cross-validation used for each day
+
+DAY 1:
+MNTED: average precision score : 0.899687645688 
+NET: average precision score : 0.899687645688 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.899687645688 
+NET: average f-1 score : 0.899687645688 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 2:
+MNTED: average precision score : 0.898976689977 
+NET: average precision score : 0.898976689977 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.898976689977 
+NET: average f-1 score : 0.898976689977 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 3:
+MNTED: average precision score : 0.907067599068 
+NET: average precision score : 0.907067599068 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.907067599068 
+NET: average f-1 score : 0.907067599068 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 4:
+MNTED: average precision score : 0.903990675991 
+NET: average precision score : 0.903990675991 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.903990675991 
+NET: average f-1 score : 0.903990675991 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 5:
+MNTED: average precision score : 0.905195804196 
+NET: average precision score : 0.905195804196 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.905195804196 
+NET: average f-1 score : 0.905195804196 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 6:
+MNTED: average precision score : 0.901839160839 
+NET: average precision score : 0.901839160839 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.901839160839 
+NET: average f-1 score : 0.901839160839 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 7:
+MNTED: average precision score : 0.902279720280 
+NET: average precision score : 0.902279720280 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.902279720280 
+NET: average f-1 score : 0.902279720280 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 8:
+MNTED: average precision score : 0.901839160839 
+NET: average precision score : 0.901839160839 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.901839160839 
+NET: average f-1 score : 0.901839160839 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+TOTAL:
+MNTED: average precision score for the whole time: 0.902609557110 
+NET: average precision score for the whole time: 0.902609557110 
+MNTED: average recall score for the whole time: 1.000000000000 
+NET: average recall score for the whole time: 1.000000000000 
+MNTED: average f-1 score for the whole time: 0.902609557110 
+NET: average f-1 score for the whole time: 0.902609557110 
+MNTED: average f-1 score for the whole time: 0.902609557110 
+NET: average f-1 score for the whole time: 0.902609557110 
+MNTED: average auc score for the whole time: 0.500000000000 
+NET: average auc score for the whole time: 0.500000000000 
+Dataset: congress
+Total time length: 8
+5 x 10 fold cross-validation used for each day
+
+DAY 1:
+MNTED: average precision score : 0.901505827506 
+NET: average precision score : 0.901505827506 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.901505827506 
+NET: average f-1 score : 0.901505827506 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 2:
+MNTED: average precision score : 0.905088578089 
+NET: average precision score : 0.905088578089 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.905088578089 
+NET: average f-1 score : 0.905088578089 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 3:
+MNTED: average precision score : 0.899030303030 
+NET: average precision score : 0.899030303030 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.899030303030 
+NET: average f-1 score : 0.899030303030 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 4:
+MNTED: average precision score : 0.903216783217 
+NET: average precision score : 0.903216783217 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.903216783217 
+NET: average f-1 score : 0.903216783217 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 5:
+MNTED: average precision score : 0.897869463869 
+NET: average precision score : 0.897869463869 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.897869463869 
+NET: average f-1 score : 0.897869463869 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 6:
+MNTED: average precision score : 0.901398601399 
+NET: average precision score : 0.901398601399 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.901398601399 
+NET: average f-1 score : 0.901398601399 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 7:
+MNTED: average precision score : 0.894179487179 
+NET: average precision score : 0.894179487179 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.894179487179 
+NET: average f-1 score : 0.894179487179 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+DAY 8:
+MNTED: average precision score : 0.901785547786 
+NET: average precision score : 0.901785547786 
+MNTED: average recall score : 1.000000000000 
+NET: average recall score : 1.000000000000 
+MNTED: average f-1 score : 0.901785547786 
+NET: average f-1 score : 0.901785547786 
+MNTED: average auc score : 0.500000000000 
+NET: average auc score : 0.500000000000 
+
+TOTAL:
+MNTED: average precision score for the whole time: 0.900509324009 
+NET: average precision score for the whole time: 0.900509324009 
+MNTED: average recall score for the whole time: 1.000000000000 
+NET: average recall score for the whole time: 1.000000000000 
+MNTED: average f-1 score for the whole time: 0.900509324009 
+NET: average f-1 score for the whole time: 0.900509324009 
+MNTED: average f-1 score for the whole time: 0.900509324009 
+NET: average f-1 score for the whole time: 0.900509324009 
+MNTED: average auc score for the whole time: 0.500000000000 
+NET: average auc score for the whole time: 0.500000000000 
