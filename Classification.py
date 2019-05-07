@@ -70,9 +70,9 @@ def load_data(file_name):
     return G_MNTED, G_NET, Label
 
 
-def twoLabel_classification(train_x, test_x, train_label, test_label):
+def twoLabel_classification(kerneli,train_x, test_x, train_label, test_label):
     print("doing svm...")
-    clf = SVC(kernel='poly', C=0.4)
+    clf = SVC(kernel=kerneli, C=0.4)
     clf.fit(train_x, train_label)
 
     # pred_label = clf.predict(test_x)
@@ -84,10 +84,10 @@ def twoLabel_classification(train_x, test_x, train_label, test_label):
     recall=recall_score(train_label,pred_label,pos_label=1)
     f_measure=f1_score(train_label,pred_label,pos_label=1)
     auc_score=roc_auc_score(train_label,pred_label,average='micro')
-    fpr, tpr,thresholds=roc_curve(train_label,pred_label,pos_label=1)
-    auc_score = auc(fpr, tpr)
-    plt.plot(fpr,tpr,marker='o')
-    plt.show()
+    # fpr, tpr,thresholds=roc_curve(train_label,pred_label,pos_label=1)
+    # auc_score = auc(fpr, tpr)
+    # plt.plot(fpr,tpr,marker='o')
+    # plt.show()
     acc_score = accuracy_score(train_label,pred_label)
     print("acc:",acc_score)
     print("precision:",prec_score)
@@ -155,7 +155,8 @@ G_MNTED_origin, G_NET_origin, Label_origin = load_data(file_name)  # origin embe
 
 # upsample embeddings using SMOTEENN
 sm = SMOTEENN()
-methodList = {"G_MNTED": G_MNTED_origin, "G_NET": G_NET_origin}
+methodList = {"G_NET": G_NET_origin}
+#methodList = {"G_MNTED": G_MNTED_origin, "G_NET": G_NET_origin}
 G_MNTED = list()
 G_NET = list()
 Label_MNTED = list()
@@ -172,7 +173,7 @@ for method, em in methodList.items():
             Label_NET.append(label_new)
 print("Finish unsampling!")
 
-days = len(G_MNTED)
+days = len(G_NET)
 data=open("result/"+file_name+"_"+"classification_result.txt", 'a+')
 print("Dataset:", dataset_name, file=data)
 print("Total time length:", days, file=data)
@@ -184,113 +185,118 @@ days_copy = days
 total_days_metric_array_MNTED = np.zeros(5)
 total_days_metric_array_NET = np.zeros(5)
 
-for day in range(days_copy):
-    print("This is day", day)
-    day_avg_metric_array_MNTED = np.zeros(5)
-    day_avg_metric_array_NET = np.zeros(5)
-    for method, em in methodList.items():
-        print("This is method :", method)
-        if method == "G_MNTED":
-            label_method = Label_MNTED
-        else:
-            label_method = Label_NET
+kernellist=['linear', 'rbf', 'sigmoid']
+for kerneli in kernellist:
+    print("*******************************This is kernel", kerneli, "*************************************************")
+    for day in range(days_copy):
+        print("***********************************This is day", day,"*********************************************")
+        day_avg_metric_array_MNTED = np.zeros(5)
+        day_avg_metric_array_NET = np.zeros(5)
+        for method, em in methodList.items():
+            #print("This is method :", method)
+            if method == "G_MNTED":
+                label_method = Label_MNTED
+            else:
+                label_method = Label_NET
 
-        Label_day_arr = np.array(label_method[day])
-        indices_1 = np.where(Label_day_arr == 1)[0]
-        if len(indices_1) < 2:
-            raise ValueError("negative sample less than 2!")
+            Label_day_arr = np.array(label_method[day])
+            indices_1 = np.where(Label_day_arr == 1)[0]
+            if len(indices_1) < 2:
+                raise ValueError("negative sample less than 2!")
 
-        metric_sum_array = np.zeros(5)  # refer to precision_sum,recall_sum,f1_sum,auc_sum respectively
-        V=em[day]
+            metric_sum_array = np.zeros(5)  # refer to precision_sum,recall_sum,f1_sum,auc_sum respectively
+            V=em[day]
 
-        for ite in range(iterateTime):
-            print("This is iterate time:", ite)
-            # class_num=len(Labels)
-            train_x = list()
-            test_x = list()
-            test_index = list()
-            train_index=list()
-            train_label = list()
-            test_label = list()
+            for ite in range(iterateTime):
+                print("******************************This is iterate time:", ite, "******************************")
+                # class_num=len(Labels)
+                train_x = list()
+                test_x = list()
+                test_index = list()
+                train_index=list()
+                train_label = list()
+                test_label = list()
 
-            Groups = generate_10_fold_data(V.shape[0])
-            for i in range(folds):
-                test_index = []
-                train_index = []
-                train_label = []
-                test_label = []
-                test_index = Groups[i]
-                [train_index.extend(Groups[j]) for j in range(len(Groups)) if j != i]
-                [train_label.append(label_method[day][k]) for k in train_index]
-                [test_label.append(label_method[day][k]) for k in test_index]
+                Groups = generate_10_fold_data(V.shape[0])
+                for i in range(folds):
+                    test_index = []
+                    train_index = []
+                    train_label = []
+                    test_label = []
+                    test_index = Groups[i]
+                    [train_index.extend(Groups[j]) for j in range(len(Groups)) if j != i]
+                    [train_label.append(label_method[day][k]) for k in train_index]
+                    [test_label.append(label_method[day][k]) for k in test_index]
 
-                sum_train = sum(np.array(train_label))
-                sum_test = sum(np.array(test_label))
-                if sum_train == 0:
-                    index_1=test_label.index(1)
-                    train_index.append(test_index[index_1])
-                    test_index.pop(index_1)
-                if sum_test == 0:
-                    index_1=train_label.index(1)
-                    test_index.append(train_index[index_1])
-                    train_index.pop(index_1)
-                train_label = []
-                test_label = []
-                [train_label.append(label_method[day][k]) for k in train_index]
-                [test_label.append(label_method[day][k]) for k in test_index]
+                    sum_train = sum(np.array(train_label))
+                    sum_test = sum(np.array(test_label))
+                    if sum_train == 0:
+                        index_1=test_label.index(1)
+                        train_index.append(test_index[index_1])
+                        test_index.pop(index_1)
+                    if sum_test == 0:
+                        index_1=train_label.index(1)
+                        test_index.append(train_index[index_1])
+                        train_index.pop(index_1)
+                    train_label = []
+                    test_label = []
+                    [train_label.append(label_method[day][k]) for k in train_index]
+                    [test_label.append(label_method[day][k]) for k in test_index]
 
-                res_array = twoLabel_classification(V[train_index, ],
-                                                    V[test_index, ],
-                                                    train_label,
-                                                    test_label)
-                metric_sum_array += res_array
+                    res_array = twoLabel_classification(kerneli,
+                                                        V[train_index, ],
+                                                        V[test_index, ],
+                                                        train_label,
+                                                        test_label)
+                    metric_sum_array += res_array
 
-                test_index = []
-                train_index = []
-                train_label = []
-                test_label = []
-        if method == "G_MNTED":
-            day_avg_metric_array_MNTED += metric_sum_array/(iterateTime*folds)
-        else:
-            day_avg_metric_array_NET += metric_sum_array/(iterateTime*folds)
+                    test_index = []
+                    train_index = []
+                    train_label = []
+                    test_label = []
+            if method == "G_MNTED":
+                day_avg_metric_array_MNTED += metric_sum_array/(iterateTime*folds)
+            else:
+                day_avg_metric_array_NET += metric_sum_array/(iterateTime*folds)
 
+        data=open("result/"+file_name+"_"+"classification_result.txt", 'a+')
+        print("DAY %d:" % (day+1), file=data)
+        print("\t\tavg             acc-avg         precision-avg   recall-avg     f1-avg auc", file=data)
+        print("MNTED:\t%.12f\t%.12f\t%.12f\t%.12f\t%.12f" % (day_avg_metric_array_MNTED[0],
+                                                             day_avg_metric_array_MNTED[1],
+                                                             day_avg_metric_array_MNTED[2],
+                                                             day_avg_metric_array_MNTED[3],
+                                                             day_avg_metric_array_MNTED[4]), file=data)
+        print("N E T:\t%.12f\t%.12f\t%.12f\t%.12f\t%.12f" % (day_avg_metric_array_NET[0],
+                                                             day_avg_metric_array_NET[1],
+                                                             day_avg_metric_array_NET[2],
+                                                             day_avg_metric_array_NET[3],
+                                                             day_avg_metric_array_NET[4]), "\n", file=data)
+
+        data.close()
+
+        total_days_metric_array_MNTED += day_avg_metric_array_MNTED
+        total_days_metric_array_NET += day_avg_metric_array_NET
+
+
+    total_days_avg_score_MNTED = total_days_metric_array_MNTED/days
+    total_days_avg_score_NET = total_days_metric_array_NET/days
     data=open("result/"+file_name+"_"+"classification_result.txt", 'a+')
-    print("DAY %d:" % (day+1), file=data)
-    print("\t\tavg acc-avg precision-avg recall-avg f1-avg auc", file=data)
-    print("MNTED:\t%.12f\t%.12f\t%.12f\t%.12f\t%.12f" % (day_avg_metric_array_MNTED[0],
-                                                         day_avg_metric_array_MNTED[1],
-                                                         day_avg_metric_array_MNTED[2],
-                                                         day_avg_metric_array_MNTED[3],
-                                                         day_avg_metric_array_MNTED[4]), file=data)
-    print("N E T:\t%.12f\t%.12f\t%.12f\t%.12f\t%.12f" % (day_avg_metric_array_MNTED[0],
-                                                         day_avg_metric_array_MNTED[1],
-                                                         day_avg_metric_array_MNTED[2],
-                                                         day_avg_metric_array_MNTED[3],
-                                                         day_avg_metric_array_MNTED[4]), file=data)
+    print("Kernel:",kerneli, file=data)
+    print("TOTAL:", file=data)
+    print("\t\tavg             acc-avg         precision-avg   recall-avg     f1-avg auc", file=data)
+    print("MNTED:\t%.12f\t%.12f\t%.12f\t%.12f\t%.12f" % (total_days_avg_score_MNTED[0],
+                                                         total_days_avg_score_MNTED[1],
+                                                         total_days_avg_score_MNTED[2],
+                                                         total_days_avg_score_MNTED[3],
+                                                         total_days_avg_score_MNTED[4]), file=data)
+    print("N E T:\t%.12f\t%.12f\t%.12f\t%.12f\t%.12f" % (total_days_avg_score_NET[0],
+                                                         total_days_avg_score_NET[1],
+                                                         total_days_avg_score_NET[2],
+                                                         total_days_avg_score_NET[3],
+                                                         total_days_avg_score_NET[4]), "\n", file=data)
 
     data.close()
-
-    total_days_metric_array_MNTED += day_avg_metric_array_MNTED
-    total_days_metric_array_NET += day_avg_metric_array_NET
-
-
-total_days_avg_score_MNTED = total_days_metric_array_MNTED/days
-total_days_avg_score_NET = total_days_metric_array_NET/days
-data=open("result/"+file_name+"_"+"classification_result.txt", 'a+')
-print("TOTAL:", file=data)
-print("\t\tavg acc-avg precision-avg recall-avg f1-avg auc", file=data)
-print("MNTED:\t%.12f\t%.12f\t%.12f\t%.12f\t%.12f" % (total_days_avg_score_MNTED[0],
-                                                     total_days_avg_score_MNTED[1],
-                                                     total_days_avg_score_MNTED[2],
-                                                     total_days_avg_score_MNTED[3],
-                                                     total_days_avg_score_MNTED[4]), file=data)
-print("N E T:\t%.12f\t%.12f\t%.12f\t%.12f\t%.12f" % (total_days_avg_score_NET[0],
-                                                     total_days_avg_score_NET[1],
-                                                     total_days_avg_score_NET[2],
-                                                     total_days_avg_score_NET[3],
-                                                     total_days_avg_score_NET[4]), file=data)
-
-data.close()
 print("classification done!")
 
 
