@@ -8,6 +8,10 @@ from sklearn.metrics import auc
 from sklearn.metrics import roc_curve
 from imblearn.combine import SMOTEENN
 from sklearn.model_selection import StratifiedKFold
+import lightgbm as lgb
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import roc_auc_score
+import pandas as pd
 import numpy as np
 import scipy.io as sio
 import random
@@ -70,22 +74,59 @@ def load_data(file_name):
     return G_MNTED, G_NET, Label
 
 
-def twoLabel_classification(kerneli,train_x, test_x, train_label, test_label):
-    print("doing svm...")
-    clf = SVC(kernel=kerneli, C=0.4)
-    clf.fit(train_x, train_label)
-    pred_label = clf.predict(test_x)
+def twoLabel_lgb_classification(train_x, test_x, train_label, test_label):
+    print("doing lgb...")
+    lgb_train = lgb.Dataset(train_x, train_label)
+    lgb_eval = lgb.Dataset(test_x, test_label, reference=lgb_train)
+    params = {  # 先设置简单的参数
+        'boosting': 'gbdt',
+        'objective': 'binary',
+        'num_leaves': 13,
+        'learning_rate': 0.1,
+        # 'feature_fraction': 0.9,
+        # 'bagging_fraction': 0.8,
+        # 'bagging_freq': 5,
+        'verbose': 1000,  # 100次打印结果
+        'num_threads': 4,
+        'eval_metric': 'logloss'
+    }
+    print('Start training...')
+    # train
+    gbm = lgb.train(params,
+                    lgb_train,
+                    num_boost_round=100000,
+                    valid_sets=lgb_eval,
+                    early_stopping_rounds=500)
+    # 保存模型
+    print('Save model...')
+    gbm.save_model('best_model.txt')
+
+    print('Start predicting...')
+    pred_label_pre = gbm.predict(test_x, num_iteration=gbm.best_iteration)
+    pred_label = list()
+    for pred_label_prei in pred_label_pre:
+        if pred_label_prei>0.4:
+            pred_label.append(1)
+        else:
+            pred_label.append(0)
+
+    # clf = SVC(kernel=kerneli, C=0.4)
+    # clf.fit(train_x, train_label)
+    # pred_label = clf.predict(test_x)
 
     # pred_label = clf.predict(train_x)
     print(train_label)
     print(pred_label)
-    print("1 in pred_label :",1 in pred_label)
-
-    print("0 in ored_label :",0 in pred_label)
+    # print("1 in pred_label :",1 in pred_label)
+    #
+    # print("0 in ored_label :",0 in pred_label)
     prec_score=precision_score(test_label,pred_label,average='micro')
     recall=recall_score(test_label,pred_label,pos_label=1)
     f_measure=f1_score(test_label,pred_label,pos_label=1)
     # auc_score=roc_auc_score(test_label,pred_label,average='micro')
+    # prec_score = 0
+    # recall = 0
+    # f_measure = 0
     fpr, tpr, thresholds = roc_curve(test_label, pred_label,pos_label=1)
     auc_score = auc(fpr, tpr)
     fig=plt.figure(num=1,figsize=(8,6))
@@ -93,6 +134,7 @@ def twoLabel_classification(kerneli,train_x, test_x, train_label, test_label):
     plt.show()
 
     plt.close()
+    # acc_score = 0
     acc_score = accuracy_score(test_label,pred_label)
     print("acc:",acc_score)
     print("precision:",prec_score)
@@ -101,6 +143,38 @@ def twoLabel_classification(kerneli,train_x, test_x, train_label, test_label):
     print("auc:",auc_score)
     res_array = np.array([acc_score,prec_score,recall,f_measure,auc_score])
     return res_array
+
+# def twoLabel_classification(kerneli,train_x, test_x, train_label, test_label):
+#     print("doing svm...")
+#     clf = SVC(kernel=kerneli, C=0.4)
+#     clf.fit(train_x, train_label)
+#     pred_label = clf.predict(test_x)
+#
+#     # pred_label = clf.predict(train_x)
+#     print(train_label)
+#     print(pred_label)
+#     print("1 in pred_label :",1 in pred_label)
+#
+#     print("0 in ored_label :",0 in pred_label)
+#     prec_score=precision_score(test_label,pred_label,average='micro')
+#     recall=recall_score(test_label,pred_label,pos_label=1)
+#     f_measure=f1_score(test_label,pred_label,pos_label=1)
+#     # auc_score=roc_auc_score(test_label,pred_label,average='micro')
+#     fpr, tpr, thresholds = roc_curve(test_label, pred_label,pos_label=1)
+#     auc_score = auc(fpr, tpr)
+#     fig=plt.figure(num=1,figsize=(8,6))
+#     plt.plot(fpr, tpr, marker='o')
+#     plt.show()
+#
+#     plt.close()
+#     acc_score = accuracy_score(test_label,pred_label)
+#     print("acc:",acc_score)
+#     print("precision:",prec_score)
+#     print("recall:",recall)
+#     print("f-1:",f_measure)
+#     print("auc:",auc_score)
+#     res_array = np.array([acc_score,prec_score,recall,f_measure,auc_score])
+#     return res_array
 
 
 def generate_10_fold_data(data_length):
@@ -136,7 +210,7 @@ for method, em in methodList.items():
             G_NET.append(g_new)
             Label_NET.append(label_new)
 print("Finish unsampling!")
-new_methodList={ "G_NET": G_NET,"G_MNTED": G_MNTED}
+new_methodList={"G_MNTED": G_MNTED, "G_NET": G_NET}
 
 days = len(G_NET)
 
@@ -182,7 +256,8 @@ for kerneli in kernellist:
                     print("TRAIN:", train_index, "TEST:", test_index)
                     train_x, test_x = V[train_index], V[test_index]
                     train_label, test_label = label[train_index], label[test_index]
-                    res_array = twoLabel_classification(kerneli,
+                    res_array = twoLabel_lgb_classification(
+                    #res_array = twoLabel_classification(kerneli,
                                                         train_x,
                                                         test_x,
                                                         train_label,
