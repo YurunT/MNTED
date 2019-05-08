@@ -5,9 +5,9 @@ import time
 
 # dataset_name = "aminer"
 # dataset_name = "blog_perturb"
-# dataset_name = "congress"
+dataset_name = "congress"
 # dataset_name = "Disney"
-dataset_name = "flickr"
+# dataset_name = "flickr"
 # dataset_name = "wiki"
 
 file_name_dic = {'aminer': 'aminer/aminer_duicheng',

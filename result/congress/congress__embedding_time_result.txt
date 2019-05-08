@@ -2,3 +2,7 @@ Dataset: congress
 time length: 8
 Time spent on MNTED: 0.546601057053 s
 Time spent on NET: 0.500861883163 s
+Dataset: congress
+time length: 8
+Time spent on MNTED: 0.664108991623 s
+Time spent on NET: 0.502308845520 s
