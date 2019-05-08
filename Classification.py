@@ -22,9 +22,9 @@ file_name_dic = {'aminer': 'aminer/aminer_duicheng',
 
 # dataset_name = "aminer"
 # dataset_name = "blog_perturb"
-# dataset_name = "congress"
+dataset_name = "congress"
 # dataset_name = "Disney"
-dataset_name = "flickr"
+# dataset_name = "flickr"
 # dataset_name = "wiki"
 
 iterateTime = 5
@@ -77,8 +77,8 @@ def twoLabel_classification(train_x, test_x, train_label, test_label):
     pred_label = clf.predict(test_x)
 
     # pred_label = clf.predict(train_x)
-    print(train_label)
-    print(pred_label)
+    # print(train_label)
+    # print(pred_label)
     print("1 in pred_label :",1 in pred_label)
     print("0 in ored_label :",0 in pred_label)
     prec_score=precision_score(test_label,pred_label,average='micro')
@@ -87,11 +87,10 @@ def twoLabel_classification(train_x, test_x, train_label, test_label):
     # auc_score=roc_auc_score(test_label,pred_label,average='micro')
     fpr, tpr, thresholds = roc_curve(test_label, pred_label,pos_label=1)
     auc_score = auc(fpr, tpr)
-    fig=plt.figure(num=1,figsize=(8,6))
-    plt.plot(fpr, tpr, marker='o')
-    plt.show()
-
-    plt.close(indices)
+    # fig=plt.figure(num=1,figsize=(8,6))
+    # plt.plot(fpr, tpr, marker='o')
+    # plt.show()
+    # plt.close()
     acc_score = accuracy_score(test_label,pred_label)
     print("acc:",acc_score)
     print("precision:",prec_score)
@@ -102,23 +101,12 @@ def twoLabel_classification(train_x, test_x, train_label, test_label):
     return res_array
 
 
-def generate_10_fold_data(data_length):
-    split_interval = int(data_length/folds)
-    full_index = list(np.arange(data_length))
-    Groups = list()
-    for i in range(folds-1):
-        Groups.append(random.sample(full_index, split_interval))
-        full_index = list(set(full_index).difference(set(Groups[i])))
-    Groups.append(full_index)
-    return Groups
-
-
 file_name = file_name_dic[dataset_name]
 G_MNTED_origin, G_NET_origin, Label_origin = load_data(file_name)  # origin embeddings without upsampling
 
 # upsample embeddings using SMOTEENN
 sm = SMOTEENN()
-methodList = { "G_NET": G_NET_origin,"G_MNTED": G_MNTED_origin}
+methodList = { "G_MNTED": G_MNTED_origin,"G_NET": G_NET_origin,}
 G_MNTED = list()
 G_NET = list()
 Label_MNTED = list()
@@ -126,7 +114,18 @@ Label_NET = list()
 print("Start upsampling using SMOTEENN")
 for method, em in methodList.items():
     for i in range(len(em)):
-        g_new, label_new = sm.fit_sample(em[i], Label_origin[i])
+        g_old=em[i].tolist().copy()
+        label_old=Label_origin[i].copy()
+        ll=np.array(label_old)
+        sum_1=sum(ll)
+        location_1=np.where(ll==1)[0]
+
+        if sum_1<=2:
+            for __ in range(3):
+                [g_old.append(g_old[p]) for p in location_1]
+                [label_old.append(label_old[p]) for p in location_1]
+
+        g_new, label_new = sm.fit_sample(g_old, label_old)
         if method == "G_MNTED":
             G_MNTED.append(g_new)
             Label_MNTED.append(label_new)
@@ -161,7 +160,7 @@ for day in range(days_copy):
         label=label_method[day]
         Label_day_arr = np.array(label)
         indices_1 = np.where(Label_day_arr == 1)[0]
-        if len(indices_1) < 2:
+        if len(indices_1) <= 2:
             raise ValueError("negative sample less than 2!")
 
         metric_sum_array = np.zeros(5)  # refer to precision_sum,recall_sum,f1_sum,auc_sum respectively
@@ -171,7 +170,7 @@ for day in range(days_copy):
             skf = StratifiedKFold(n_splits=folds)
             indices = skf.split(V,label)
             for train_index, test_index in indices:
-                print("TRAIN:",train_index,"TEST:",test_index)
+                # print("TRAIN:",train_index,"TEST:",test_index)
                 train_x, test_x=V[train_index],V[test_index]
                 train_label,test_label=label[train_index],label[test_index]
                 res_array = twoLabel_classification(train_x,
