@@ -8,6 +8,10 @@ from sklearn.metrics import auc
 from sklearn.metrics import roc_curve
 from imblearn.combine import SMOTEENN
 from sklearn.model_selection import StratifiedKFold
+import lightgbm as lgb
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import roc_auc_score
+
 import numpy as np
 import scipy.io as sio
 import random
@@ -70,16 +74,83 @@ def load_data(file_name):
     return G_MNTED, G_NET, Label
 
 
-def twoLabel_classification(train_x, test_x, train_label, test_label):
+def twoLabel_lgb_classification(train_x, test_x, train_label, test_label):
+    print("doing lgb...")
+    lgb_train = lgb.Dataset(train_x, train_label)
+    lgb_eval = lgb.Dataset(test_x, test_label, reference=lgb_train)
+    params = {  # 先设置简单的参数
+        'boosting': 'gbdt',
+        'objective': 'binary',
+        'num_leaves': 13,
+        'learning_rate': 0.1,
+        # 'feature_fraction': 0.9,
+        # 'bagging_fraction': 0.8,
+        # 'bagging_freq': 5,
+        'verbose': 100000,  # 100次打印结果
+        'num_threads': 4,
+        'eval_metric': 'logloss'
+    }
+    print('Start training...')
+    # train
+    gbm = lgb.train(params,
+                    lgb_train,
+                    num_boost_round=1000,
+                    valid_sets=lgb_eval,
+                    early_stopping_rounds=500)
+    # 保存模型
+    print('Save model...')
+    gbm.save_model('best_model.txt')
+
+    print('Start predicting...')
+    pred_label_pre = gbm.predict(test_x, num_iteration=gbm.best_iteration)
+    pred_label = list()
+    for pred_label_prei in pred_label_pre:
+        if pred_label_prei>0.4:
+            pred_label.append(1)
+        else:
+            pred_label.append(0)
+
+    # clf = SVC(kernel=kerneli, C=0.4)
+    # clf.fit(train_x, train_label)
+    # pred_label = clf.predict(test_x)
+
+    # pred_label = clf.predict(train_x)
+
+    prec_score=precision_score(test_label,pred_label,average='micro')
+    recall=recall_score(test_label,pred_label,pos_label=1)
+    f_measure=f1_score(test_label,pred_label,pos_label=1)
+    # auc_score=roc_auc_score(test_label,pred_label,average='micro')
+    # prec_score = 0
+    # recall = 0
+    # f_measure = 0
+    fpr, tpr, thresholds = roc_curve(test_label, pred_label,pos_label=1)
+    auc_score = auc(fpr, tpr)
+
+    # fig=plt.figure(num=1,figsize=(8,6))
+    # plt.plot(fpr, tpr, marker='o')
+    # plt.show()
+    # plt.close()
+
+    acc_score = accuracy_score(test_label,pred_label)
+    print("acc:",acc_score)
+    print("precision:",prec_score)
+    print("recall:",recall)
+    print("f-1:",f_measure)
+    print("auc:",auc_score)
+    res_array = np.array([acc_score,prec_score,recall,f_measure,auc_score])
+    return res_array
+
+def twoLabel_classification(kerneli,train_x, test_x, train_label, test_label):
     print("doing svm...")
-    clf = SVC(kernel="linear", C=0.4)
+    clf = SVC(kernel=kerneli, C=0.4)
     clf.fit(train_x, train_label)
     pred_label = clf.predict(test_x)
 
     # pred_label = clf.predict(train_x)
-    # print(train_label)
-    # print(pred_label)
+    print(train_label)
+    print(pred_label)
     print("1 in pred_label :",1 in pred_label)
+
     print("0 in ored_label :",0 in pred_label)
     prec_score=precision_score(test_label,pred_label,average='micro')
     recall=recall_score(test_label,pred_label,pos_label=1)
@@ -87,10 +158,11 @@ def twoLabel_classification(train_x, test_x, train_label, test_label):
     # auc_score=roc_auc_score(test_label,pred_label,average='micro')
     fpr, tpr, thresholds = roc_curve(test_label, pred_label,pos_label=1)
     auc_score = auc(fpr, tpr)
-    # fig=plt.figure(num=1,figsize=(8,6))
-    # plt.plot(fpr, tpr, marker='o')
-    # plt.show()
-    # plt.close()
+    fig=plt.figure(num=1,figsize=(8,6))
+    plt.plot(fpr, tpr, marker='o')
+    plt.show()
+
+    plt.close()
     acc_score = accuracy_score(test_label,pred_label)
     print("acc:",acc_score)
     print("precision:",prec_score)
@@ -106,7 +178,9 @@ G_MNTED_origin, G_NET_origin, Label_origin = load_data(file_name)  # origin embe
 
 # upsample embeddings using SMOTEENN
 sm = SMOTEENN()
+
 methodList = { "G_MNTED": G_MNTED_origin,"G_NET": G_NET_origin,}
+
 G_MNTED = list()
 G_NET = list()
 Label_MNTED = list()
@@ -133,9 +207,10 @@ for method, em in methodList.items():
             G_NET.append(g_new)
             Label_NET.append(label_new)
 print("Finish unsampling!")
-new_methodList={ "G_NET": G_NET,"G_MNTED": G_MNTED}
+new_methodList={"G_MNTED": G_MNTED, "G_NET": G_NET}
 
-days = len(G_MNTED)
+days = len(G_NET)
+
 data=open("result/"+file_name+"_"+"classification_result.txt", 'w+')
 print("Dataset:", dataset_name, file=data)
 print("Total time length:", days, file=data)
@@ -147,48 +222,51 @@ days_copy = days
 total_days_metric_array_MNTED = np.zeros(5)
 total_days_metric_array_NET = np.zeros(5)
 
+
 for day in range(days_copy):
-    print("This is day", day)
+    print("***********************************This is day", day,"*********************************************")
     day_avg_metric_array_MNTED = np.zeros(5)
     day_avg_metric_array_NET = np.zeros(5)
     for method, em in new_methodList.items():
-        print("This is method :", method)
+        #print("This is method :", method)
         if method == "G_MNTED":
             label_method = Label_MNTED
         else:
             label_method = Label_NET
+
         label=label_method[day]
         Label_day_arr = np.array(label)
         indices_1 = np.where(Label_day_arr == 1)[0]
-        if len(indices_1) <= 2:
+        if len(indices_1) < 2:
             raise ValueError("negative sample less than 2!")
 
         metric_sum_array = np.zeros(5)  # refer to precision_sum,recall_sum,f1_sum,auc_sum respectively
         V=em[day]
+
         for ite in range(iterateTime):
-            print("This is iterate time:", ite)
+            print("******************************This is iterate time:", ite, "******************************")
             skf = StratifiedKFold(n_splits=folds)
-            indices = skf.split(V,label)
+            indices = skf.split(V, label)
             for train_index, test_index in indices:
-                # print("TRAIN:",train_index,"TEST:",test_index)
-                train_x, test_x=V[train_index],V[test_index]
-                train_label,test_label=label[train_index],label[test_index]
-                res_array = twoLabel_classification(train_x,
+                print("TRAIN:", train_index, "TEST:", test_index)
+                train_x, test_x = V[train_index], V[test_index]
+                train_label, test_label = label[train_index], label[test_index]
+                res_array = twoLabel_lgb_classification(
+
+                                                    train_x,
                                                     test_x,
                                                     train_label,
                                                     test_label)
                 metric_sum_array += res_array
 
-
-
         if method == "G_MNTED":
-            day_avg_metric_array_MNTED += metric_sum_array/(iterateTime*folds)
+            day_avg_metric_array_MNTED += metric_sum_array / (iterateTime * folds)
         else:
-            day_avg_metric_array_NET += metric_sum_array/(iterateTime*folds)
+            day_avg_metric_array_NET += metric_sum_array / (iterateTime * folds)
 
-    data=open("result/"+file_name+"_"+"classification_result.txt", 'a+')
-    print("DAY %d:" % (day+1), file=data)
-    print("\t\tavg acc-avg precision-avg recall-avg f1-avg auc", file=data)
+    data = open("result/" + file_name + "_" + "classification_result.txt", 'a+')
+    print("DAY %d:" % (day + 1), file=data)
+    print("\t\tavg             acc-avg         precision-avg   recall-avg     f1-avg auc", file=data)
     print("MNTED:\t%.12f\t%.12f\t%.12f\t%.12f\t%.12f" % (day_avg_metric_array_MNTED[0],
                                                          day_avg_metric_array_MNTED[1],
                                                          day_avg_metric_array_MNTED[2],
@@ -198,7 +276,7 @@ for day in range(days_copy):
                                                          day_avg_metric_array_NET[1],
                                                          day_avg_metric_array_NET[2],
                                                          day_avg_metric_array_NET[3],
-                                                         day_avg_metric_array_NET[4]), file=data)
+                                                         day_avg_metric_array_NET[4]), "\n", file=data)
 
     data.close()
 
@@ -206,11 +284,13 @@ for day in range(days_copy):
     total_days_metric_array_NET += day_avg_metric_array_NET
 
 
-total_days_avg_score_MNTED = total_days_metric_array_MNTED/days
+total_days_avg_score_MNTED = total_days_metric_array_MNTED/days*len()
 total_days_avg_score_NET = total_days_metric_array_NET/days
+
 data=open("result/"+file_name+"_"+"classification_result.txt", 'a+')
+# print("Kernel:",kerneli, file=data)
 print("TOTAL:", file=data)
-print("\t\tavg acc-avg precision-avg recall-avg f1-avg auc", file=data)
+print("\t\tavg             acc-avg         precision-avg   recall-avg     f1-avg auc", file=data)
 print("MNTED:\t%.12f\t%.12f\t%.12f\t%.12f\t%.12f" % (total_days_avg_score_MNTED[0],
                                                      total_days_avg_score_MNTED[1],
                                                      total_days_avg_score_MNTED[2],
@@ -218,9 +298,11 @@ print("MNTED:\t%.12f\t%.12f\t%.12f\t%.12f\t%.12f" % (total_days_avg_score_MNTED[
                                                      total_days_avg_score_MNTED[4]), file=data)
 print("N E T:\t%.12f\t%.12f\t%.12f\t%.12f\t%.12f" % (total_days_avg_score_NET[0],
                                                      total_days_avg_score_NET[1],
-                                                     total_days_avg_score_NET[2],
+                                                     *+[2],
                                                      total_days_avg_score_NET[3],
-                                                     total_days_avg_score_NET[4]), file=data)
+                                                     total_days_avg_score_NET[4]), "\n", file=data)
+
+
 
 data.close()
 print("classification done!")
